@@ -1,26 +1,28 @@
-'use client';
+"use client";
 
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 // import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-// import useLoginModal from "@/app/hooks/useLoginModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 // import useRentModal from "@/app/hooks/useRentModal";
 // import { SafeUser } from "@/app/types";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import { User } from "@prisma/client";
+import { signOut } from "next-auth/react";
 
-// interface UserMenuProps {
-//   currentUser?: SafeUser | null
-// }
+interface UserMenuProps {
+  currentUser?: User | null;
+}
 
-const UserMenu = () => {
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
 
-  // const loginModal = useLoginModal();
+  const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   // const rentModal = useRentModal();
 
@@ -38,27 +40,28 @@ const UserMenu = () => {
   //   rentModal.onOpen();
   // }, [loginModal, rentModal, currentUser]);
 
-  return ( 
+  return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        <div 
+        <div
           onClick={() => {}}
           className="
             hidden
             md:block
             text-sm 
-            font-semibold 
+            font-bold 
             py-3 
             px-4 
             rounded-full 
+            text-orange-600 
             hover:bg-neutral-100 
             transition 
             cursor-pointer
           "
         >
-          Post your Animal
+          Post your animals
         </div>
-        <div 
+        <div
           onClick={toggleOpen}
           className="
             p-4
@@ -84,7 +87,7 @@ const UserMenu = () => {
       </div>
 
       {isOpen && (
-        <div 
+        <div
           className="
             absolute 
             rounded-xl 
@@ -99,51 +102,41 @@ const UserMenu = () => {
           "
         >
           <div className="flex flex-col cursor-pointer">
-            {/* {currentUser ? ( */}
+            {currentUser ? (
               <>
-                {/* <MenuItem 
-                  label="My trips" 
-                  onClick={() => router.push('/trips')}
+                <MenuItem
+                  label="My favorites"
+                  onClick={() => {}}
+                  // {() => router.push('/favorites')}
                 />
-                <MenuItem 
-                  label="My favorites" 
-                  onClick={() => router.push('/favorites')}
+                <MenuItem
+                  label="My donations"
+                  onClick={() => {}}
+                  // {() => router.push('/donations')}
                 />
-                <MenuItem 
-                  label="My reservations" 
-                  onClick={() => router.push('/reservations')}
-                />
-                <MenuItem 
-                  label="My properties" 
-                  onClick={() => router.push('/properties')}
-                />
-                <MenuItem 
-                  label="Airbnb your home" 
-                  onClick={rentModal.onOpen}
+                <MenuItem
+                  label="Post your animals"
+                  onClick={() => {}}
+                  orange
+                  // {rentModal.onOpen}
                 />
                 <hr />
-                <MenuItem 
-                  label="Logout" 
+                <MenuItem
+                  label="Logout"
                   onClick={() => signOut()}
                 />
               </>
-            ) : (
-              <> */}
-                <MenuItem 
-                  label="Login" 
-                  onClick={() => {}}
-                />
-                <MenuItem 
-                  label="Sign up" 
-                  onClick={registerModal.onOpen}
-                />
+              ) : (
+              <>
+                <MenuItem label="Login" onClick={loginModal.onOpen} />
+                <MenuItem label="Sign up" onClick={registerModal.onOpen} />
               </>
-            
+            )}
           </div>
         </div>
       )}
     </div>
-   );
-}
- 
+  );
+};
+
 export default UserMenu;
