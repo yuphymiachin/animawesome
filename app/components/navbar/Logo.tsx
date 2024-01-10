@@ -10,7 +10,7 @@ const Logo = () => {
   return (
     <>
       <Image
-        onClick={() => signIn('google')}
+        onClick={() => router.push("/")}
         alt="Logo"
         className="hidden lg:block cursor-pointer"
         height="52"
@@ -18,7 +18,7 @@ const Logo = () => {
         src="/images/logo-full.svg"
       />
       <Image
-        onClick={() => signIn('google')}
+        onClick={() => router.push("/")}
         alt="Logo"
         className="hidden min-[450px]:block lg:hidden cursor-pointer"
         height="49"
