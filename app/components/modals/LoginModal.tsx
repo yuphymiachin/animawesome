@@ -104,7 +104,7 @@ const LoginModal = () => {
       />
       <div className="
       text-neutral-500 text-center mt-4 font-light">
-        <p>First time using Airbnb?
+        <p>New to Animawesome?
           <span 
             onClick={onToggle} 
             className="

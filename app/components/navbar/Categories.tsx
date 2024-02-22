@@ -6,7 +6,9 @@ import { TbCat, TbFence } from 'react-icons/tb';
 import { LiaFrogSolid } from 'react-icons/lia';
 import { VscSnake } from 'react-icons/vsc';
 import { LuDog, LuFish, LuPalmtree } from 'react-icons/lu';
+import { LiaFishSolid } from "react-icons/lia";
 import { PiBird } from 'react-icons/pi';
+import { IoHomeOutline } from "react-icons/io5";
 import { BsHouseHeart } from 'react-icons/bs';
 import { BiWater } from 'react-icons/bi';
 import { FaBookDead } from 'react-icons/fa';
@@ -22,77 +24,82 @@ export const categories = [
   {
     label: 'Cats',
     icon: TbCat,
-    description: 'This animal is a cat!',
+    description: 'These animals are cats!',
   },
   {
     label: 'Dogs',
     icon: LuDog,
-    description: 'This animal is a dog!',
+    description: 'These animals are dogs!',
   },
   {
     label: 'Rodens',
     icon: MdOutlinePestControlRodent,
-    description: 'This animal is a roden!'
+    description: 'These animals are rodens!'
   },
   {
     label: 'Fish',
-    icon: LuFish,
-    description: 'This animal is a fish!',
-  },
-  {
-    label: 'Birds',
-    icon: PiBird,
-    description: 'This animal is a bird!'
-  },
-  {
-    label: 'Reptiles',
-    icon: VscSnake,
-    description: 'This animal is a reptile!'
+    icon: LiaFishSolid,
+    description: 'These animals are fish!',
   },
   {
     label: 'Amphibians',
     icon: LiaFrogSolid,
-    description: 'This animal is an amphibian!'
+    description: 'These animals are amphibians!'
+  },
+  {
+    label: 'Birds',
+    icon: PiBird,
+    description: 'These animals are birds!'
+  },
+  {
+    label: 'Reptiles',
+    icon: VscSnake,
+    description: 'These animals are reptiles!'
+  },
+  {
+    label: 'Homes',
+    icon: IoHomeOutline,
+    description: 'These animals live in homes!'
   },
   {
     label: 'Farms',
     icon: TbFence,
-    description: 'This animal is in a farm!'
+    description: 'These animals live in farms!'
   },
   {
     label: 'Shelters',
     icon: BsHouseHeart,
-    description: 'This animal is in a shelter!'
+    description: 'These animals live in shelters!'
   },
   {
     label: 'Zoos',
     icon: MdOutlineWarehouse,
-    description: 'This animal is in a zoo!'
+    description: 'These animals live in zoos!'
   },
   {
     label: 'Ocean',
     icon: BiWater,
-    description: 'This animal lives in ocean!'
+    description: 'These animals live in ocean!'
   },
   {
     label: 'Safari',
     icon: GiHighGrass,
-    description: 'This animal lives in safari!'
+    description: 'These animals live in safari!'
   },
   {
     label: 'Polar',
     icon: SiPolars,
-    description: 'This animal lives in polar regions!'
+    description: 'These animals live in polar regions!'
   },
   {
     label: 'Tropical',
     icon: LuPalmtree,
-    description: 'This animal lives in tropical regions!'
+    description: 'These animals live in tropical regions!'
   },
   {
     label: 'Endangered',
     icon: FaBookDead,
-    description: 'This animal is endangered!'
+    description: 'These animals are endangered!'
   }
 ]
 

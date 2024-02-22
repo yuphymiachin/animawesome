@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-// import useRentModal from "@/app/hooks/useRentModal";
+import usePostModal from "@/app/hooks/usePostModal";
 // import { SafeUser } from "@/app/types";
 
 import MenuItem from "./MenuItem";
@@ -24,7 +24,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  // const rentModal = useRentModal();
+  const postModal = usePostModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,19 +32,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     setIsOpen((value) => !value);
   }, []);
 
-  // const onRent = useCallback(() => {
-  //   if (!currentUser) {
-  //     return loginModal.onOpen();
-  //   }
+  const onPost = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
 
-  //   rentModal.onOpen();
-  // }, [loginModal, rentModal, currentUser]);
+    postModal.onOpen();
+  }, [loginModal, currentUser]);
 
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={() => {}}
+          onClick={onPost}
           className="
             hidden
             md:block
@@ -110,15 +110,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   // {() => router.push('/favorites')}
                 />
                 <MenuItem
-                  label="My donations"
-                  onClick={() => {}}
-                  // {() => router.push('/donations')}
+                  label="Post my animals"
+                  onClick={postModal.onOpen}
+                  orange
                 />
                 <MenuItem
-                  label="Post your animals"
+                  label="My profile"
                   onClick={() => {}}
-                  orange
-                  // {rentModal.onOpen}
+                  // {() => router.push('/donations')}
                 />
                 <hr />
                 <MenuItem

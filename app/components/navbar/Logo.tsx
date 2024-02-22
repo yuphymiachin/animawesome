@@ -10,7 +10,7 @@ const Logo = () => {
   return (
     <>
       <Image
-        onClick={() => router.push("/")}
+        onClick={() => router.push("/")} // clicking logo and cancel the selection of categories
         alt="Logo"
         className="hidden lg:block cursor-pointer"
         height="52"
